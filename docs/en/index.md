@@ -1,3 +1,4 @@
+[Select Language](../)
 # 1.List  
 ## 1.1 Static Keys
 No need calculation, verify with the key directly.
