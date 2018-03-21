@@ -288,8 +288,47 @@ img {
   <title>MDReader</title>
 </head>
 <body>
-  <div id="content"><h1 id="-中文-zh-index-html-"><a href="./zh/index.html">中文</a></h1>
-<h1 id="-english-en-index-html-"><a href="./en/index.html">English</a></h1>
-<h1 id="-italiano-it-index-html-"><a href="./it/index.html">italiano</a></h1>
+  <div id="content"><p><a href="../">Select Language</a></p>
+<h1 id="1-elenco">1.Elenco</h1>
+<h2 id="1-1-tasti-statici">1.1 Tasti statici</h2>
+<p>Nessun calcolo necessario, verificare direttamente con la chiave.</p>
+<h2 id="1-2-tasti-dinamici">1.2 Tasti dinamici</h2>
+<p>Genera chiavi per espressioni, quindi verifica.</p>
+<h1 id="2-scoppiare">2.scoppiare</h1>
+<h2 id="2-1-modalità-dict">2.1 Modalità Dict</h2>
+<p>Usa il dizionario delle chiavi per far esplodere il settore.</p>
+<h2 id="2-2-aumentare-la-modalità">2.2 Aumentare la modalità</h2>
+<ul>
+<li><code>00</code> <code>01</code>   ……  <code>FE</code> <code>FF</code> Si trova per byte non cifrato.</li>
+<li><code>u0</code> <code>u1</code> <code>u2</code> <code>u3</code> Supporta i 4 byte di UID.</li>
+<li>Un BLANK significa che genererà le chiavi con aumento su questo byte.</li>
+</ul>
+<pre><code> 
+Esempio 1：
+Ingresso
+00 12 34 56 78 __
+creare
+00 12 34 56 78 00
+00 12 34 56 78 01
+00 12 34 56 78 02
+...
+00 12 34 56 78 FE
+00 12 34 56 78 FF
+Totale 256 chiavi
+</code></pre>
+<pre><code>
+Esempio 2：
+Attualmente, UID is 99 88 77 66
+Ingresso
+__ u0 u1 u2 u3 __
+creare
+00 99 88 77 66 00
+00 99 88 77 66 01
+00 99 88 77 66 02
+...
+FF 99 88 77 66 FE
+FF 99 88 77 66 FF
+Totale 65536 chiavi
+</code></pre>
 </div></body>
 </html>
